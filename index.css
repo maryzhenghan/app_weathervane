@@ -13,3 +13,15 @@ button {
 	padding: 5px 10px;
 	text-transform: uppercase;
 }
+
+
+.js-weatherpage {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+.js-resultspage {
+	display: none;
+}
