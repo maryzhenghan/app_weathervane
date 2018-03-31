@@ -2,6 +2,8 @@ body {
 	padding: 30px;
 }
 
+
+/* HOMEPAGE */
 h1 {
 	color: lightgrey;
 	font-family: "Flamenco";
@@ -15,10 +17,17 @@ button {
 }
 
 
+/* WEATHER PAGE */
 .js-weatherpage {
 	display: none;
-	margin: 0;
-	padding: 0;
+}
+
+fieldset {
+	border: 0;
+}
+
+h2 {
+	color: grey;
 }
 
 

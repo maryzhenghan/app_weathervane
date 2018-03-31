@@ -18,7 +18,29 @@
 			<button class="js-startbutton">click here to start</button>
 		</section>
 
-		<div class="js-weatherpage"><h2>test js-weatherpage</h2></div>
+		<div class="js-weatherpage">
+			<div class="weatherpage-locationform">
+				<form role="form" class="js-form-zipcode">
+					<fieldset>
+						<h2>Within the United States:</h2>
+						<label for="zipcode">Zip code</label>
+						<input id="zipcode" class="js-zipcode" type="text" name="zipcode">
+						<input type="submit" name="zipcode-submit">
+					</fieldset>
+				</form>
+
+				<form role="form" class="js-form-citycountry">
+					<fieldset>
+						<h2>Outside of the United States:</h2>
+						<label for="city">City</label>
+						<input id="city" class="js-city" type="text" name="city">
+						<label for="countrycode">Country Code</label>
+						<input id="countrycode" class="js-countrycode" type="text" name="country">
+						<input type="submit" name="city-submit">
+					</fieldset>
+
+			</div>
+		</div>
 
 		<div class="js-resultspage"><h2>test js-resultspage</h2></div>
 	</main>
