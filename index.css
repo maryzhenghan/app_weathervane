@@ -1,0 +1,15 @@
+body {
+	padding: 30px;
+}
+
+h1 {
+	color: lightgrey;
+	font-family: "Flamenco";
+}
+
+button {
+	border: 1px solid lightgrey;
+	color: grey;
+	padding: 5px 10px;
+	text-transform: uppercase;
+}
