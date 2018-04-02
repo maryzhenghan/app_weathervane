@@ -23,6 +23,20 @@ function submitLocation() {
 		console.log('submit button works ' + zipcode);
 	});
 
+	$('.js-form-citycountry').submit(function(event) {
+		event.preventDefault();
+
+		const cityTarget = $(event.currentTarget).find('.js-city');
+		const city = cityTarget.val();
+
+		const countrycodeTarget = $(event.currentTarget).find('.js-countrycode');
+		const countryCode = countrycodeTarget.val();
+
+		$('.js-weatherpage-locationform').addClass("hidden");
+
+		console.log('2nd submit button works ' + city + ', ' + countryCode);
+	});
+
 
 	
 }
