@@ -11,6 +11,27 @@ function startApp() {
 
 const OPENWEATHER_SEARCH_URL = 'http://api.openweathermap.org/data/2.5/weather';
 
+function getWeatherData(searchTerm, searchTerm2, callback) {
+	const query = {
+		q: `${searchTerm},${searchTerm2}`,
+		units: 'imperial',
+		APPID: '753488c2e76956786a10dc9e1ab0243a',
+	}
+	$.getJSON(OPENWEATHER_SEARCH_URL, query, callback);
+}
+
+function displayApiSearchData(data) {
+	const weatherIcon = data.weather[0].icon;
+	let weatherIconName = JSON.stringify(weatherIcon);
+	console.log(weatherIconName);
+
+	displayPlaylist(weatherIconName);
+}
+
+function displayPlaylist(weatherIconName){
+	
+}
+
 function submitLocation() {
 	$('.js-form-zipcode').submit(function(event) {
 		event.preventDefault();
@@ -18,9 +39,13 @@ function submitLocation() {
 		const zipcodeTarget = $(event.currentTarget).find('.js-zipcode');
 		const zipcode = zipcodeTarget.val();
 
+		const countryDefault = 'us';
+
 		$('.js-weatherpage-locationform').addClass("hidden");
 
-		console.log('submit button works ' + zipcode);
+		console.log('submit button works ' + zipcode + ', ' + countryDefault);
+
+		getWeatherData(zipcode, countryDefault, displayApiSearchData);
 	});
 
 	$('.js-form-citycountry').submit(function(event) {
@@ -35,16 +60,14 @@ function submitLocation() {
 		$('.js-weatherpage-locationform').addClass("hidden");
 
 		console.log('2nd submit button works ' + city + ', ' + countryCode);
+
+		getWeatherData(city, countryCode, displayApiSearchData);
 	});
-
-
-	
 }
 
-
-function callBack() {
+function masterCallback() {
 	startApp();
 }
 
 
-$(callBack);
+$(masterCallback);
