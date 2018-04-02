@@ -18,10 +18,6 @@ button {
 
 
 /* WEATHER PAGE */
-.js-weatherpage {
-	display: none;
-}
-
 fieldset {
 	border: 0;
 }
@@ -30,7 +26,6 @@ h2 {
 	color: grey;
 }
 
-
-.js-resultspage {
+.hidden {
 	display: none;
 }
