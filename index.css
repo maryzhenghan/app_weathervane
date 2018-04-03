@@ -1,31 +1,49 @@
 body {
 	padding: 30px;
+	font-family: 'Josefin Sans', sans-serif;
 }
 
-
-/* HOMEPAGE */
 h1 {
-	color: lightgrey;
-	font-family: "Flamenco";
-}
-
-button {
-	border: 1px solid lightgrey;
+	margin-bottom: 0;
 	color: grey;
-	padding: 5px 10px;
-	text-transform: uppercase;
-}
-
-
-/* WEATHER PAGE */
-fieldset {
-	border: 0;
+	font-family: 'Flamenco', cursive;
 }
 
 h2 {
+	margin-top: 0;
+	color: lightgrey;
+	font-size: 16px;
+}
+
+button, .form-submitbutton {
+	border: 1px solid lightgrey;
 	color: grey;
+	padding: 7px 10px;
+	text-transform: uppercase;
 }
 
 .hidden {
 	display: none;
 }
+
+
+/* WEATHER PAGE */
+
+fieldset {
+	border: 0;
+}
+
+label {
+	display: block;
+}
+
+.form-textinput {
+	padding: 7px;
+}
+
+
+/* RESULTS PAGE */
+
+/* #map {
+	height: 50%;
+} */

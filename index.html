@@ -4,51 +4,56 @@
 	<title>weatherVane | mood music</title>
 	<meta name="description" content="Hi, I'm weatherVane. I was built to play curated music to match your climate conditions. Let's get started.">
 	<link rel="stylesheet" type="text/css" href="index.css">
-	<link href="https://fonts.googleapis.com/css?family=Flamenco:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Flamenco:300|Josefin+Sans:300i" rel="stylesheet">
 	<!-- <link id="favicon" rel="icon" type="image/x-icon" href=""> -->
 </head>
 
 <body>
-	<main role="main">
-		<header role="banner">
-			<h1>weatherVane</h1>
-		</header>
+	<header role="banner">
+		<h1>weatherVane</h1>
+		<h2>Curated music to match your climate conditions</h2>
+	</header>
 
+	<main role="main">
 		<section role="section" class="js-homepage">
 			<button class="js-startbutton">click here to start</button>
 		</section>
 
-		<div class="js-weatherpage hidden">
+		<section class="js-weatherpage hidden">
 			<div class="js-weatherpage-locationform">
 				<form role="form" class="js-form-zipcode">
 					<fieldset>
-						<h2>Within the United States:</h2>
+						<h3>Within the United States:</h3>
 						<label for="zipcode">Zip code</label>
-						<input id="zipcode" class="js-zipcode" type="text" name="zipcode">
-						<input type="submit" name="zipcode-submit">
+						<input id="zipcode" class="js-zipcode form-textinput" type="text" name="zipcode">
+						<input type="submit" name="zipcode-submit" class="form-submitbutton">
 					</fieldset>
 				</form>
 
 				<form role="form" class="js-form-citycountry">
 					<fieldset>
-						<h2>Outside of the United States:</h2>
+						<h3>Outside of the United States:</h3>
 						<label for="city">City</label>
-						<input id="city" class="js-city" type="text" name="city">
+						<input id="city" class="js-city form-textinput" type="text" name="city">
 						<label for="countrycode">Country Code</label>
-						<input id="countrycode" class="js-countrycode" type="text" name="country">
-						<input type="submit" name="city-submit">
+						<input id="countrycode" class="js-countrycode form-textinput" type="text" name="country">
+						<input type="submit" name="city-submit" class="form-submitbutton">
 					</fieldset>
-
+				</form>
 			</div>
-		</div>
+		</section>
 
-		<div class="js-resultspage hidden">
-			<!-- <iframe width="400" height="80" frameborder="0" allow="encrypted-media" allowtransparency="true" class="js-playlistiframe"></iframe> -->
-		</div>
+		<section class="js-resultspage hidden">
+			<div class="js-map" id="map"></div>
+			<iframe width="400" height="80" frameborder="0" allow="encrypted-media" allowtransparency="true" class="js-playlistiframe"></iframe>
+		</section>
 	</main>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="weatherBank.js"></script>
 	<script type="text/javascript" src="index.js"></script>
+
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFAVFzwPGwOzyFXFsl7nD4O_tKV-SmDZI&callback=initMap" async defer></script>-->
 </body>
 
 </html>
