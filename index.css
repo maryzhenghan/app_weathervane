@@ -1,6 +1,15 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 body {
-	padding: 30px;
 	font-family: 'Josefin Sans', sans-serif;
+}
+
+header, main {
+	padding-left: 30px;
 }
 
 h1 {
@@ -44,6 +53,7 @@ label {
 
 /* RESULTS PAGE */
 
-/* #map {
-	height: 50%;
-} */
+#map {
+	height: 350px;
+	width: 400px;
+}

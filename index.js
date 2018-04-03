@@ -1,5 +1,5 @@
 const OPENWEATHER_SEARCH_URL = 'http://api.openweathermap.org/data/2.5/weather';
-/* let map; */
+let map;
 
 function displayPlaylist(weatherIcon){
 	const playlistId = weatherBank[weatherIcon].playlistId;
@@ -11,28 +11,25 @@ function displayPlaylist(weatherIcon){
 	$('.js-playlistiframe').attr("src", `${spotifyUrl}`);
 }
 
-function displayApiSearchData(data) {
-	const weatherIcon = data.weather[0].icon;
-
-	/*const locationLat = data.coord.lat;
-	const locationLng = data.coord.lon;*/
-
-	displayPlaylist(weatherIcon);
-/*	initMap(locationLat, locationLng);*/
-}
-
-/* function initMap(locationLat, locationLng) {
+function initMap(locationLat, locationLng) {
 	const numberLat = Number(locationLat);
 	const numberLng = Number(locationLng);
-
-	console.log(locationLng);
-	console.log(locationLat);
 
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: numberLat, lng: numberLng},
 		zoom: 10
 	});
-} */
+}
+
+function displayApiSearchData(data) {
+	const weatherIcon = data.weather[0].icon;
+
+	const locationLat = data.coord.lat;
+	const locationLng = data.coord.lon;
+
+	displayPlaylist(weatherIcon);
+	initMap(locationLat, locationLng);
+}
 
 function getWeatherData(searchTerm, searchTerm2, callback) {
 	const query = {
@@ -55,8 +52,6 @@ function submitLocation() {
 
 		$('.js-weatherpage-locationform').addClass("hidden");
 
-		console.log('submit button works ' + zipcode + ', ' + countryDefault);
-
 		getWeatherData(zipcode, countryDefault, displayApiSearchData);
 	});
 
@@ -70,8 +65,6 @@ function submitLocation() {
 
 		$('.js-weatherpage-locationform').addClass("hidden");
 
-		console.log('2nd submit button works ' + city + ', ' + countryCode);
-
 		getWeatherData(city, countryCode, displayApiSearchData);
 	});
 }
@@ -82,8 +75,6 @@ function startApp() {
 
 		$('.js-homepage').addClass("hidden");
 		$('.js-weatherpage').removeClass("hidden");
-
-		console.log('start button clicked');
 
 		submitLocation();
 	});
