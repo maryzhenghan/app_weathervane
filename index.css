@@ -65,11 +65,11 @@ label {
 
 /* RESULTS PAGE */
 
+.map {
+	margin-bottom: 5px;
+}
+
 #map {
 	height: 350px;
 	width: 400px;
 }
-
-/* .js-map {
-	opacity: 0.3;
-} */
