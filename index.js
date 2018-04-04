@@ -1,14 +1,23 @@
 const OPENWEATHER_SEARCH_URL = 'http://api.openweathermap.org/data/2.5/weather';
+const UNSPLASH_SEARCH_URL = 'https://api.unsplash.com/photos/random/';
 let map;
 
-function displayPlaylist(weatherIcon){
-	const playlistId = weatherBank[weatherIcon].playlistId;
-	const playlistTheme = weatherBank[weatherIcon].playlistTheme;
 
-	const spotifyUrl = `https://open.spotify.com/embed?uri=spotify:user:mnzheng:playlist:${playlistId}&view=coverart&theme=${playlistTheme}`;
+function changeBg(unsplashData) {
+	const unsplashBgUrl = unsplashData.urls.full;
+	$('html').css("background", `url('${unsplashBgUrl}') no-repeat center center fixed`);
+}
 
-	$('.js-resultspage').removeClass("hidden");
-	$('.js-playlistiframe').attr("src", `${spotifyUrl}`);
+function getUnsplashData(weatherIcon, callback) {
+	const weatherPhotoSearch = weatherBank[weatherIcon].weatherPhotoSearch;
+	const query = {
+		query: weatherPhotoSearch,
+		orientation: 'landscape',
+		featured: '',
+		client_id: '18f4244f98bfff352004a8687212d4a90fc64ad55bfa3402e323e10f9041ec22',
+	}
+
+	$.getJSON(UNSPLASH_SEARCH_URL, query, callback);
 }
 
 function initMap(locationLat, locationLng) {
@@ -21,6 +30,16 @@ function initMap(locationLat, locationLng) {
 	});
 }
 
+function displayPlaylist(weatherIcon) {
+	const playlistId = weatherBank[weatherIcon].playlistId;
+	const playlistTheme = weatherBank[weatherIcon].playlistTheme;
+
+	const spotifyUrl = `https://open.spotify.com/embed?uri=spotify:user:mnzheng:playlist:${playlistId}&view=coverart&theme=${playlistTheme}`;
+
+	$('.js-resultspage').removeClass("hidden");
+	$('.js-playlistiframe').attr("src", `${spotifyUrl}`);
+}
+
 function displayApiSearchData(data) {
 	const weatherIcon = data.weather[0].icon;
 
@@ -29,6 +48,7 @@ function displayApiSearchData(data) {
 
 	displayPlaylist(weatherIcon);
 	initMap(locationLat, locationLng);
+	getUnsplashData(weatherIcon, changeBg);
 }
 
 function getWeatherData(searchTerm, searchTerm2, callback) {
@@ -50,7 +70,7 @@ function submitLocation() {
 		const zipcode = zipcodeTarget.val();
 		const countryDefault = 'us';
 
-		$('.js-weatherpage-locationform').addClass("hidden");
+		$('.js-weatherpage').addClass("hidden");
 
 		getWeatherData(zipcode, countryDefault, displayApiSearchData);
 	});
@@ -63,7 +83,7 @@ function submitLocation() {
 		const countrycodeTarget = $(event.currentTarget).find('.js-countrycode');
 		const countryCode = countrycodeTarget.val();
 
-		$('.js-weatherpage-locationform').addClass("hidden");
+		$('.js-weatherpage').addClass("hidden");
 
 		getWeatherData(city, countryCode, displayApiSearchData);
 	});
