@@ -293,7 +293,23 @@ function displayPlaylist(weatherIcon) {
 	$('.js-playlistiframe').attr("src", `${spotifyUrl}`);
 }
 
+function apiZipcodeFail(data) {
+	const apiError = data.responseJSON.message;
+	$('.js-apierrormessage-zc').removeClass("hidden");
+	$('.js-apierrormessage-zc').html(`Error: ${apiError}. Please try again.`);
+
+}
+
+function apiCityCountryFail(data) {
+	const apiError = data.responseJSON.message;
+	$('.js-apierrormessage-cc').removeClass("hidden");
+	$('.js-apierrormessage-cc').html(`Error: ${apiError}. Please try again.`);
+
+}
+
 function displayApiSearchData(data) {
+	$('.js-weatherpage').addClass("hidden");
+
 	const weatherIcon = data.weather[0].icon;
 
 	const locationLat = data.coord.lat;
@@ -304,14 +320,14 @@ function displayApiSearchData(data) {
 	getUnsplashData(weatherIcon, changeBg);
 }
 
-function getWeatherData(searchTerm, searchTerm2, callback) {
+function getWeatherData(searchTerm, searchTerm2, callback, failCallback) {
 	const query = {
 		q: `${searchTerm},${searchTerm2}`,
 		units: 'imperial',
 		APPID: '753488c2e76956786a10dc9e1ab0243a',
 	}
 
-	$.getJSON(OPENWEATHER_SEARCH_URL, query, callback);
+	$.getJSON(OPENWEATHER_SEARCH_URL, query, callback).fail(failCallback);
 }
 
 
@@ -324,7 +340,7 @@ function submitLocation() {
 			$('.js-errormessage-zc').removeClass("hidden");
 			return;
 		}
-		else if ($('.js-zipcode').val().length <= 5) {
+		else if ($('.js-zipcode').val().length <= 4) {
 			$('.js-errormessage-zc').removeClass("hidden");
 			return;
 		}
@@ -333,9 +349,7 @@ function submitLocation() {
 		const zipcode = zipcodeTarget.val();
 		const countryDefault = 'us';
 
-		$('.js-weatherpage').addClass("hidden");
-		
-		getWeatherData(zipcode, countryDefault, displayApiSearchData);
+		getWeatherData(zipcode, countryDefault, displayApiSearchData, apiZipcodeFail);
 	});
 
 	$('.js-form-citycountry').submit(function(event) {
@@ -356,9 +370,7 @@ function submitLocation() {
 		const countrycodeTarget = $(event.currentTarget).find('.js-countrycode');
 		const countryCode = countrycodeTarget.val();
 
-		$('.js-weatherpage').addClass("hidden");
-
-		getWeatherData(city, countryCode, displayApiSearchData);
+		getWeatherData(city, countryCode, displayApiSearchData, apiCityCountryFail);
 	});
 }
 
