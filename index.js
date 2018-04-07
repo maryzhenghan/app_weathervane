@@ -14,6 +14,7 @@ function restartButton() {
 function changeBg(unsplashData) {
 	const unsplashBgUrl = unsplashData.urls.full;
 	$('html').css("background", `url('${unsplashBgUrl}') no-repeat center center fixed`);
+	$('html').css("background-size", "100% auto");
 }
 
 function getUnsplashData(weatherIcon, callback) {
@@ -22,6 +23,7 @@ function getUnsplashData(weatherIcon, callback) {
 		query: weatherPhotoSearch,
 		orientation: 'landscape',
 		featured: '',
+		w: 1920,
 		client_id: '18f4244f98bfff352004a8687212d4a90fc64ad55bfa3402e323e10f9041ec22',
 	}
 
