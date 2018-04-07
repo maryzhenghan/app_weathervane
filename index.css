@@ -5,7 +5,7 @@ html, body {
 }
 
 html {
-	background: url('https://images.unsplash.com/photo-1511389290465-d11bafd4c1df?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2e5f65f729a037b1278b23e479e0c873') no-repeat center center fixed;
+	background: url('/weathervane-bg.jpeg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
