@@ -1,4 +1,4 @@
-const OPENWEATHER_SEARCH_URL = 'http://api.openweathermap.org/data/2.5/weather';
+const OPENWEATHER_SEARCH_URL = 'https://api.openweathermap.org/data/2.5/weather';
 const UNSPLASH_SEARCH_URL = 'https://api.unsplash.com/photos/random/';
 let map;
 
@@ -318,18 +318,38 @@ function getWeatherData(searchTerm, searchTerm2, callback) {
 function submitLocation() {
 	$('.js-form-zipcode').submit(function(event) {
 		event.preventDefault();
+		$('.js-errormessage-zc').addClass("hidden");
+
+		if ($('.js-zipcode').val() === '') {
+			$('.js-errormessage-zc').removeClass("hidden");
+			return;
+		}
+		else if ($('.js-zipcode').val().length <= 5) {
+			$('.js-errormessage-zc').removeClass("hidden");
+			return;
+		}
 
 		const zipcodeTarget = $(event.currentTarget).find('.js-zipcode');
 		const zipcode = zipcodeTarget.val();
 		const countryDefault = 'us';
 
 		$('.js-weatherpage').addClass("hidden");
-
+		
 		getWeatherData(zipcode, countryDefault, displayApiSearchData);
 	});
 
 	$('.js-form-citycountry').submit(function(event) {
 		event.preventDefault();
+		$('.js-errormessage-city, .js-errormessage-cc').addClass("hidden");
+
+		if ($('.js-city').val() === '') {
+			$('.js-errormessage-city').removeClass("hidden");
+			return;
+		}
+		else if ($('.js-countrycode').val() === '') {
+			$('.js-errormessage-cc').removeClass("hidden");
+			return;
+		}
 
 		const cityTarget = $(event.currentTarget).find('.js-city');
 		const city = cityTarget.val();

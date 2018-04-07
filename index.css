@@ -58,6 +58,10 @@ label {
 	display: block;
 }
 
+::placeholder {
+	font-style: italic;
+}
+
 .form-textinput {
 	padding: 7px;
 }

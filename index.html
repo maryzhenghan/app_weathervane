@@ -25,8 +25,9 @@
 					<fieldset>
 						<h3>Within the United States:</h3>
 						<label for="zipcode">Zip code</label>
-						<input id="zipcode" class="js-zipcode form-textinput" type="text" name="zipcode">
+						<input id="zipcode" class="js-zipcode form-textinput" type="text" name="zipcode" placeholder="eg. '27705'">
 						<input type="submit" name="zipcode-submit" class="form-submitbutton">
+						<span class ="js-errormessage-zc hidden">* Please enter a valid zip code</span>
 					</fieldset>
 				</form>
 
@@ -34,10 +35,12 @@
 					<fieldset>
 						<h3>Outside of the United States:</h3>
 						<label for="city">City</label>
-						<input id="city" class="js-city form-textinput" type="text" name="city">
+						<input id="city" class="js-city form-textinput" type="text" name="city" placeholder="eg. 'Shanghai'">
+						<span class ="js-errormessage-city hidden">* Please enter a valid city name</span>
 						<label for="countrycode">Country Code</label>
-						<input id="countrycode" class="js-countrycode form-textinput" type="text" name="country">
+						<input id="countrycode" class="js-countrycode form-textinput" type="text" name="country" placeholder="eg. 'CN'">
 						<input type="submit" name="city-submit" class="form-submitbutton">
+						<span class ="js-errormessage-cc hidden">* Please enter a valid country code</span>
 					</fieldset>
 				</form>
 			</div>
