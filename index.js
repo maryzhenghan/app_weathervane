@@ -2,6 +2,14 @@ const OPENWEATHER_SEARCH_URL = 'https://api.openweathermap.org/data/2.5/weather'
 const UNSPLASH_SEARCH_URL = 'https://api.unsplash.com/photos/random/';
 let map;
 
+function restartButton() {
+	$('.js-restartbutton').on('click', function(event){
+		event.preventDefault();
+
+		$('.js-weatherpage').removeClass("hidden");
+		$('.js-resultspage').addClass("hidden");
+	});
+}
 
 function changeBg(unsplashData) {
 	const unsplashBgUrl = unsplashData.urls.full;
@@ -308,7 +316,10 @@ function apiCityCountryFail(data) {
 }
 
 function displayApiSearchData(data) {
+	$('.js-resultspage').addClass("hidden");
+	$('.form-textinput').val('');
 	$('.js-weatherpage').addClass("hidden");
+	$('.js-errormessage-zc, .js-errormessage-city, .js-errormessage-cc, .js-apierrormessage-zc, .js-apierrormessage-cc').addClass("hidden");
 
 	const weatherIcon = data.weather[0].icon;
 
@@ -318,6 +329,7 @@ function displayApiSearchData(data) {
 	displayPlaylist(weatherIcon);
 	initMap(locationLat, locationLng);
 	getUnsplashData(weatherIcon, changeBg);
+	restartButton();
 }
 
 function getWeatherData(searchTerm, searchTerm2, callback, failCallback) {
@@ -332,6 +344,8 @@ function getWeatherData(searchTerm, searchTerm2, callback, failCallback) {
 
 
 function submitLocation() {
+	$('.js-weatherpage').removeClass("hidden");
+
 	$('.js-form-zipcode').submit(function(event) {
 		event.preventDefault();
 		$('.js-errormessage-zc').addClass("hidden");
@@ -378,8 +392,8 @@ function startApp() {
 	$('.js-startbutton').on('click', function(event){
 		event.preventDefault();
 
+		$('.js-resultspage').addClass("hidden");
 		$('.js-homepage').addClass("hidden");
-		$('.js-weatherpage').removeClass("hidden");
 
 		submitLocation();
 	});
