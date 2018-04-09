@@ -76,6 +76,25 @@ label {
 
 /* RESULTS PAGE */
 
+.photo-attr {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 10px;
+	padding: 5px;
+	opacity: 0.6;
+
+	font-family: 'Lato', sans-serif;
+	font-size: 12px;
+	font-style: italic;
+
+	background-color: white;
+}
+
+.unsplash-attr:link, .unsplash-attr:visited, .unsplash-attr:hover, .unsplash-attr:active {
+	color: grey;
+}
+
 .map {
 	margin-bottom: 5px;
 }

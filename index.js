@@ -15,6 +15,10 @@ function changeBg(unsplashData) {
 	const unsplashBgUrl = unsplashData.urls.full;
 	$('html').css("background", `url('${unsplashBgUrl}') no-repeat center center fixed`);
 	$('html').css("background-size", "cover");
+
+	const unsplashUser = unsplashData.user.username;
+	const unsplashName = unsplashData.user.name;
+	$('.js-unsplashattr').html(`<a href="https://unsplash.com/@${unsplashUser}?utm_source=weatherVaneByMaryHan&utm_medium=referral" target="_blank" class="js-unsplashattr-artist unsplash-attr">${unsplashName}</a>`);
 }
 
 function getUnsplashData(weatherIcon, callback) {
