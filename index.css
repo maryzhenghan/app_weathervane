@@ -23,66 +23,63 @@ header, main {
 	padding-left: 15%;
 }
 
-h1 {
+.logo {
 	margin-bottom: 0;
-	color: #39412C;
+	color: #636342;
 	font-family: 'Flamenco', cursive;
 	font-size: 36px;
 }
 
-h1 a:link, h1 a:visited, h1 a:hover, h1 a:active {
-	color: #39412C;
+.logo a:link, h1 a:visited, h1 a:hover, h1 a:active {
+	background-color: #E1E3D9;
+	color: #636342;
+	display: inline;
+	opacity: .8;
+	padding: 0 20px 0 10px;
 	text-decoration: none;
 }
 
 h2 {
-	margin-top: 0;
-	color: grey;
-	font-size: 22px;
+	background-color: #8B9762;
+	display: inline-block;
+	margin-top: 5px;
+	margin-bottom: 30px;
+	color: white;
+	font-size: 18px;
+	opacity: .8;
+	padding: 0 20px 0 10px;
+	width: 40%;
 }
 
-button, .form-submitbutton {
+button {
+	display: block;
 	border: 1px solid lightgrey;
 	color: grey;
 	font-family: 'Lato', sans-serif;
+	padding: 7px 20px;
+	text-transform: lowercase;
+}
+
+.form-submitbutton {
+	border: 1px solid lightgrey;
+	color: grey;
+	font-family: 'Lato', sans-serif;
+	margin-top: 0px;
 	padding: 7px 10px;
-	text-transform: uppercase;
+	text-transform: lowercase;
 }
 
 .hidden {
 	display: none;
 }
 
-
-/* WEATHER PAGE */
-
-fieldset {
-	border: 0;
-}
-
-label {
-	display: block;
-}
-
-::placeholder {
-	font-family: 'Lato', sans-serif;
-	font-style: italic;
-}
-
-.form-textinput {
-	padding: 7px;
-}
-
-
-/* RESULTS PAGE */
-
 .photo-attr {
 	position: fixed;
 	bottom: 0;
 	right: 0;
-	margin: 10px;
-	padding: 5px;
-	opacity: 0.6;
+	margin: 10px 0 20px 10px;
+	padding: 5px 15px 5px 25px;
+	opacity: 0.75;
 
 	font-family: 'Lato', sans-serif;
 	font-size: 12px;
@@ -95,6 +92,69 @@ label {
 	color: grey;
 }
 
+
+/* WEATHER PAGE */
+
+fieldset {
+	border: 0;
+}
+
+legend {
+	background-color: #969690;
+	color: white;
+	display: inline-block;
+	font-size: 20px;
+	opacity: .8;
+	padding: 0px 10px;
+	margin-bottom: 5px;
+}
+
+label {
+	display: block;
+	color: grey;
+	font-size: 16px;
+	font-family: 'Lato', sans-serif;
+	letter-spacing: -1px;
+}
+
+::placeholder {
+	font-family: 'Lato', sans-serif;
+	font-style: italic;
+	font-size: 13px;
+	letter-spacing: -.5px;
+}
+
+.js-weatherpage-locationform {
+	background-color: white;
+	display: inline-block;
+	opacity: .9;
+	width: 40%;
+}
+
+.form-textinput {
+	border: 1px lightgrey solid;
+	margin-top: 3px;
+	margin-bottom: 20px;
+	padding: 7px;
+}
+
+.js-city {
+	margin-bottom: 10px;
+}
+
+.countrycode-link:link, .countrycode-link:visited, .countrycode-link:hover, .countrycode-link:active {
+	color: grey;
+	font-family: 'Lato', sans-serif;
+}
+
+.js-errormessage-zc, .js-errormessage-city, .js-errormessage-cc, .js-apierrormessage-zc, .js-apierrormessage-cc {
+	color: red;
+	font-size: 12px;
+}
+
+
+/* RESULTS PAGE */
+
 .map {
 	margin-bottom: 5px;
 }
@@ -106,6 +166,12 @@ label {
 
 .js-restartbutton {
 	display: block;
-	padding: 15px 10px 6px 10px;
-	width: 15%;
+	background-color: white;
+	margin-top: 5px;
+	margin-bottom: 30px;
+	color: grey;
+	font-size: 12px;
+	opacity: .9;
+	padding: 10px 10px 0 10px;
+	text-transform: lowercase;
 }

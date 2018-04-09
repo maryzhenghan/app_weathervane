@@ -34,15 +34,27 @@ function getUnsplashData(weatherIcon, callback) {
 	$.getJSON(UNSPLASH_SEARCH_URL, query, callback);
 }
 
-function initMap(locationLat, locationLng) {
+function initMap(locationLat, locationLng, weatherIcon) {
 	const numberLat = Number(locationLat);
 	const numberLng = Number(locationLng);
 
+	const dayNight = weatherBank[weatherIcon].dayNight;
+
+	if (dayNight === 'day') {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: numberLat, lng: numberLng},
 		zoom: 10,
 		styles: mapGrayscaleStyling
 	});
+	}
+	
+	else {
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: numberLat, lng: numberLng},
+		zoom: 10,
+		styles: mapGrayscaleStylingNight
+	});
+	}
 }
 
 function displayPlaylist(weatherIcon) {
@@ -56,6 +68,8 @@ function displayPlaylist(weatherIcon) {
 }
 
 function apiZipcodeFail(data) {
+	$('.js-errormessage-zc').addClass("hidden");
+
 	const apiError = data.responseJSON.message;
 	$('.js-apierrormessage-zc').removeClass("hidden");
 	$('.js-apierrormessage-zc').html(`Error: ${apiError}. Please try again.`);
@@ -63,6 +77,8 @@ function apiZipcodeFail(data) {
 }
 
 function apiCityCountryFail(data) {
+	$('.js-errormessage-city, .js-errormessage-cc').addClass("hidden");
+
 	const apiError = data.responseJSON.message;
 	$('.js-apierrormessage-cc').removeClass("hidden");
 	$('.js-apierrormessage-cc').html(`Error: ${apiError}. Please try again.`);
@@ -81,7 +97,7 @@ function displayApiSearchData(data) {
 	const locationLng = data.coord.lon;
 
 	displayPlaylist(weatherIcon);
-	initMap(locationLat, locationLng);
+	initMap(locationLat, locationLng, weatherIcon);
 	getUnsplashData(weatherIcon, changeBg);
 	restartButton();
 }
@@ -102,7 +118,7 @@ function submitLocation() {
 
 	$('.js-form-zipcode').submit(function(event) {
 		event.preventDefault();
-		$('.js-errormessage-zc').addClass("hidden");
+		$('.js-errormessage-zc, .js-apierrormessage-zc').addClass("hidden");
 
 		if ($('.js-zipcode').val() === '') {
 			$('.js-errormessage-zc').removeClass("hidden");
@@ -122,7 +138,7 @@ function submitLocation() {
 
 	$('.js-form-citycountry').submit(function(event) {
 		event.preventDefault();
-		$('.js-errormessage-city, .js-errormessage-cc').addClass("hidden");
+		$('.js-errormessage-city, .js-errormessage-cc, .js-apierrormessage-cc').addClass("hidden");
 
 		if ($('.js-city').val() === '') {
 			$('.js-errormessage-city').removeClass("hidden");
