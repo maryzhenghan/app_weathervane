@@ -106,4 +106,6 @@ label {
 
 .js-restartbutton {
 	display: block;
+	padding: 15px 10px 6px 10px;
+	width: 15%;
 }
