@@ -30,19 +30,7 @@ h1 {
 	font-size: 36px;
 }
 
-h1, a:link {
-
-}
-
-h1, a:visited {
-
-}
-
-h1, a:hover {
-
-}
-
-h1, a:active {
+h1 a:link, h1 a:visited, h1 a:hover, h1 a:active {
 	color: #39412C;
 	text-decoration: none;
 }
@@ -56,6 +44,7 @@ h2 {
 button, .form-submitbutton {
 	border: 1px solid lightgrey;
 	color: grey;
+	font-family: 'Lato', sans-serif;
 	padding: 7px 10px;
 	text-transform: uppercase;
 }
@@ -76,6 +65,7 @@ label {
 }
 
 ::placeholder {
+	font-family: 'Lato', sans-serif;
 	font-style: italic;
 }
 
