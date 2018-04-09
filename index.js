@@ -14,7 +14,7 @@ function restartButton() {
 function changeBg(unsplashData) {
 	const unsplashBgUrl = unsplashData.urls.full;
 	$('html').css("background", `url('${unsplashBgUrl}') no-repeat center center fixed`);
-	$('html').css("background-size", "100% auto");
+	$('html').css("background-size", "100% 100%");
 }
 
 function getUnsplashData(weatherIcon, callback) {
