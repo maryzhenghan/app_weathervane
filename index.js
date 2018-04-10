@@ -34,10 +34,9 @@ function getUnsplashData(weatherIcon, callback) {
 	$.getJSON(UNSPLASH_SEARCH_URL, query, callback);
 }
 
-function initMap(locationLat, locationLng, weatherIcon) {
+function displayMap(locationLat, locationLng, weatherIcon) {
 	const numberLat = Number(locationLat);
 	const numberLng = Number(locationLng);
-
 	const dayNight = weatherBank[weatherIcon].dayNight;
 
 	if (dayNight === 'day') {
@@ -97,7 +96,7 @@ function displayApiSearchData(data) {
 	const locationLng = data.coord.lon;
 
 	displayPlaylist(weatherIcon);
-	initMap(locationLat, locationLng, weatherIcon);
+	displayMap(locationLat, locationLng, weatherIcon);
 	getUnsplashData(weatherIcon, changeBg);
 	restartButton();
 }
