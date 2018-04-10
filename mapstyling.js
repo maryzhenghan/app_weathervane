@@ -1,3 +1,4 @@
+/* DAY MAP STYLING */
 const mapGrayscaleStyling = [
   {
     "elementType": "geometry",
@@ -252,6 +253,8 @@ const mapGrayscaleStyling = [
   }
 ];
 
+
+/* NIGHT MAP STYLING */
 const mapGrayscaleStylingNight = [
   {
     "elementType": "geometry",

@@ -6,7 +6,7 @@ function restartButton() {
 	$('.js-restartbutton').on('click', function(event){
 		event.preventDefault();
 
-		$('.js-weatherpage').removeClass("hidden");
+		$('.js-locationpage').removeClass("hidden");
 		$('.js-resultspage').addClass("hidden");
 	});
 }
@@ -87,7 +87,7 @@ function apiCityCountryFail(data) {
 function displayApiSearchData(data) {
 	$('.js-resultspage').addClass("hidden");
 	$('.form-textinput').val('');
-	$('.js-weatherpage').addClass("hidden");
+	$('.js-locationpage').addClass("hidden");
 	$('.js-errormessage-zc, .js-errormessage-city, .js-errormessage-cc, .js-apierrormessage-zc, .js-apierrormessage-cc').addClass("hidden");
 
 	const weatherIcon = data.weather[0].icon;
@@ -113,7 +113,7 @@ function getWeatherData(searchTerm, searchTerm2, callback, failCallback) {
 
 
 function submitLocation() {
-	$('.js-weatherpage').removeClass("hidden");
+	$('.js-locationpage').removeClass("hidden");
 
 	$('.js-form-zipcode').submit(function(event) {
 		event.preventDefault();
@@ -168,9 +168,4 @@ function startApp() {
 	});
 }
 
-function masterCallback() {
-	startApp();
-}
-
-
-$(masterCallback);
+$(startApp);

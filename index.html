@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link rel="stylesheet" type="text/css" href="responsive.css">
 	<link href="https://fonts.googleapis.com/css?family=Flamenco:300|Josefin+Sans:300i|Lato" rel="stylesheet">
-	<!-- <link id="favicon" rel="icon" type="image/x-icon" href=""> -->
+	<link id="favicon" rel="icon" type="image/x-icon" href="cloud-favicon.png">
 </head>
 
 <body>
@@ -17,12 +17,12 @@
 	</header>
 
 	<main role="main">
-		<section role="section" class="js-homepage">
-			<button class="js-startbutton">click to start</button>
+		<section role="section" class="js-homepage" id="home-page">
+			<button class="js-startbutton" aria-labelledby="home-page">click to start</button>
 		</section>
 
-		<section class="js-weatherpage hidden">
-			<div class="js-weatherpage-locationform">
+		<section class="js-locationpage hidden" id="location-page">
+			<div class="js-locationpage-locationform" aria-labelledby="location-page">
 				<form role="form" class="js-form-zipcode">
 					<fieldset>
 						<legend>Within the United States:</legend>
@@ -50,14 +50,16 @@
 			</div>
 		</section>
 
-		<section class="js-resultspage hidden">
-			<div class="map" id="map"></div>
-			<iframe width="400" height="80" frameborder="0" allow="encrypted-media" allowtransparency="true" class="js-playlistiframe"></iframe>
-			<button class="js-restartbutton">Get another playlist</p>
+		<section class="js-resultspage hidden" id="results-page">
+			<div aria-labelledby="results-page">
+				<div class="map" id="map"></div>
+				<iframe width="400" height="80" frameborder="0" allow="encrypted-media" allowtransparency="true" class="js-playlistiframe"></iframe>
+				<button class="js-restartbutton">Get another playlist</button>
+			</div>
 		</section>
 
-		<footer role="contentinfo">
-			<div class="photo-attr">Photo by <span class="js-unsplashattr"><a href="https://unsplash.com/@lianamikah?utm_source=weatherVaneByMaryHan&utm_medium=referral" target="_blank" class="js-unsplashattr-artist unsplash-attr">Liana Mikah</a></span> on <a href="https://unsplash.com/?utm_source=weatherVaneByMaryHan&utm_medium=referral" target="_blank" class="unsplash-attr">Unsplash</a>
+		<footer role="contentinfo" id="footer">
+			<div class="photo-attr" aria-labelledby="footer">Photo by <span class="js-unsplashattr"><a href="https://unsplash.com/@lianamikah?utm_source=weatherVaneByMaryHan&utm_medium=referral" target="_blank" class="js-unsplashattr-artist unsplash-attr">Liana Mikah</a></span> on <a href="https://unsplash.com/?utm_source=weatherVaneByMaryHan&utm_medium=referral" target="_blank" class="unsplash-attr">Unsplash</a>
 			</div>
 		</footer>
 	</main>

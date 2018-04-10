@@ -97,9 +97,9 @@ button {
 
 /* WEATHER PAGE */
 
-.js-weatherpage-locationform {
+.js-locationpage-locationform {
 	display: inline-block;
-	margin-bottom: 30%;
+	margin-bottom: 25%;
 	width: 40%;
 
 	background-color: #FFFFFF;
@@ -190,8 +190,7 @@ label {
 .js-restartbutton {
 	display: block;
 	margin-top: 5px;
-	margin-bottom: 30%;
-	padding: 10px 10px 0 10px;
+	margin-bottom: 10%;
 
 	background-color: #FFFFFF;
 	color: #808080;

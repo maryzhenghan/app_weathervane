@@ -1,3 +1,4 @@
+/* DATABASE FOR WEATHER CODES */
 const weatherBank = {
 	'01d': {
 		weatherType: 'clear sky day',
