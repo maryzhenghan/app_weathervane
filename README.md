@@ -22,10 +22,10 @@ weatherVane is the result of a love for music, photography, weather, and sensory
 ## Screenshots
 
 Home page (desktop):
-![weatherVane home page](http://maryzhenghan.github.io/weathervane/wv_ss-homepage.png)
+![weatherVane home page](/wv_ss-home.png)
 
 Smartphone / small screen on location entry page (landscape):
-![weatherVane in small screen mode](http://maryzhenghan.github.io/weathervane/wv_ss-mobile.png)
+![weatherVane in small screen mode](/wv_ss-mobile.png)
 
 Large tablet results page (portrait):
 ![weatherVane in tablet mode](http://maryzhenghan.github.io/weathervane/wv_ss-tablet.png)
